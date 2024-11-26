@@ -1,7 +1,6 @@
 import Persona from "../module/ejemplo.module.js";
 import mongoose from "mongoose";
 import express from "express"
-import { error } from "ajv/dist/vocabularies/applicator/dependencies.js";
 
 export class Controller{
 
