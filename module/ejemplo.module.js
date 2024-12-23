@@ -13,8 +13,12 @@ const personaShemas= mongoose.Schema({
     },
     usuario:{
         type:String,
-        required:true
+        required:false
     },
+    tipo:{
+        type:String,
+        require:false
+    }
   
 })
 
