@@ -5,6 +5,6 @@ import { Router } from "express";
 
 const indexRoutes = Router();
 
-indexRoutes.use('/personas',persona)
+indexRoutes.use('/trabaja-con-nosotros',persona)
 
 export default indexRoutes

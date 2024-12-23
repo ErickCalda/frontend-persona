@@ -1,22 +1,23 @@
 import { Router } from "express";
 import {Controller} from "../controller/persona.js";
-const perosna = Router();
+const persona = Router();
 
 const controller = new Controller();
 
 // GET en la raíz
-perosna.get('/',controller.getpersona )
+persona.get('/',controller.getpersona )
 
 // GET con parámetro de ID
-perosna.get('/:id',controller.getpersonaID);
+persona.get('/:id',controller.getpersonaID);
 
 // PUT
-perosna.put('/:id',controller.updatepersona);
+persona.put('/:id',controller.updatepersona);
 
 // POST
-perosna.post('/',controller.postpersona);
+persona.post('/',controller.postpersona);
 
-// DELETE con parámetro de ID
-perosna.delete('/:id',controller.deletePersona);
+persona.delete('/eliminar',controller.deleteAllPersonas)
+persona.delete('/:id',controller.deletePersona);
 
-export default perosna;
+
+export default persona;

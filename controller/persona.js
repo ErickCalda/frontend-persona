@@ -184,4 +184,35 @@ deletePersona = async (req, res) => {
 
 
 
+
+
+deleteAllPersonas = async (req, res) => {
+    try {
+        // Eliminar todos los documentos de la colección
+        const resultado = await Persona.deleteMany({});
+
+        // Verificar si había documentos para eliminar
+        if (resultado.deletedCount === 0) {
+            return res.status(404).json({
+                msg: 'No hay elementos para eliminar'
+            });
+        }
+
+        // Respuesta de éxito
+        return res.status(200).json({
+            msg: 'Todos los elementos han sido eliminados',
+            cantidadEliminada: resultado.deletedCount
+        });
+    } catch (error) {
+        // Manejo de errores
+        return res.status(500).json({
+            error: 'Error al eliminar los elementos',
+            detalle: error.message
+        });
+    }
+};
+
+
+
+
 } //fin classs

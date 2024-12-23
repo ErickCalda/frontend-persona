@@ -2,23 +2,20 @@
 import mongoose from "mongoose";
 
 const personaShemas= mongoose.Schema({
-    nombre:{
+    correo:{
         type:String,
         required:true
     },
 
-    apellido:{
+    clave:{
         type:String,
         required:true
     },
-    edad:{
+    usuario:{
         type:String,
         required:true
     },
-    contacto:{
-        type:[String],
-        required:false
-    }
+  
 })
 
 const Persona = mongoose.model('Persona',personaShemas)
