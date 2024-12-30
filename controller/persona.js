@@ -73,6 +73,11 @@ getpersona = async (req,res)=>{
 
 postpersona = async(req, res)=>{
     const body = req.body;
+
+    if (body.saldo !== undefined && body.saldo !== null) {
+        body.saldo = new mongoose.Types.Decimal128(body.saldo.toString());
+    }
+
     const persona = new Persona(body)
     try {
 
@@ -115,6 +120,12 @@ updatepersona = async (req, res) => {
             return res.status(400).json({
                 msg: 'ID no válido'
             });
+        }
+
+
+          // Si el campo 'saldo' es parte de la actualización, lo convierte a Decimal128
+          if (req.body.saldo !== undefined && req.body.saldo !== null) {
+            req.body.saldo = new mongoose.Types.Decimal128(req.body.saldo.toString());
         }
 
         // Actualiza el documento con los datos enviados en el cuerpo de la solicitud

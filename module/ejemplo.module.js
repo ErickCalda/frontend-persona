@@ -1,5 +1,5 @@
 
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 
 const personaShemas= mongoose.Schema({
     correo:{
@@ -15,8 +15,8 @@ const personaShemas= mongoose.Schema({
         type:String,
         required:false
     },
-    tipo:{
-        type:String,
+    saldo:{
+        type:Types.Decimal128,
         require:false
     }
   
